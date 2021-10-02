@@ -95,24 +95,26 @@ function getMostPopularAuthors(books, authors) {
     })
   })
 
-
-  function final(array) {
-    const finalArray = authorsArray.map((element) => {
-      let name = `${element.name.first} ${element.name.last}`
-      let count = element.count;
-      return {
-        name,
-        count
-      }
-    })
-    return finalArray;
-  }
+  
 
   finalAnswer = final(authorsArray);
 
   finalAnswer.sort((authorA, authorB) => authorB.count - authorA.count)
   finalAnswer.splice(5);
   return finalAnswer;
+}
+
+//Here is my helper function:
+function final(array) {
+  const finalArray = array.map((element) => {
+    let name = `${element.name.first} ${element.name.last}`
+    let count = element.count;
+    return {
+      name,
+      count
+    }
+  })
+  return finalArray;
 }
 
 module.exports = {
